@@ -2,16 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mybatis.mappers.GameMapper">
-	<select id="dateTest" resultType="Date">
-		select game_date from game_info
-		where id = 0
-	</select>
-
-
-	<select id="test" parameterType="string"
-		resultType="kr.co.sist.football.gameschedule.model.dto.GameInfo">
-		select * from test
-	</select>
 
 	<select id="selectGameCount" parameterType="int"
 		resultType="int">
@@ -20,7 +10,7 @@
 	</select>
 
 	<select id="selectGamesByDate" parameterType="hashmap"
-		resultType="kr.co.sist.football.gameschedule.model.dto.GameInfo">
+		resultType="kr.co.sist.football.common.model.dto.GameInfo">
 		SELECT
 		id,
 		status_code statusCode,
@@ -35,7 +25,5 @@
 		WHERE
 		kind = #{kind} AND
 		to_char(game_date, 'MM')= #{month}
-
-		<!-- and date_format(reg_date, '%y-%M-%d') = ? -->
 	</select>
 </mapper>
