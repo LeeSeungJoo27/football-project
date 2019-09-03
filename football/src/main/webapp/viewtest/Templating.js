@@ -21,7 +21,7 @@ const CONTAINER = {
     <a class="header_menu" href="#">
       <small>some menu</small>
     </a>
-    <a class="header_menu" href="#">
+    <a class="header_menu" href="/register">
       <small>log-in</small>
     </a>
   </div>

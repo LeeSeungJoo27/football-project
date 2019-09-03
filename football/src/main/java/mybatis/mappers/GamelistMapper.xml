@@ -40,5 +40,7 @@
 		WHERE
 		id = #{gameInfoId}
 	</select>
+	
+	
 
 </mapper>

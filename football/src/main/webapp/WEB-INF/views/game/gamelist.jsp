@@ -30,7 +30,7 @@
 				<option value="tot">tot</option>
 				<option value="MU">MU</option>
 			</select>
-			<button type="button" class="btn">Calender</button>
+			<button type="button" onclick = "location.href='gameschedule'" class="btn">Calender</button>
 			<!--Calender버튼 눌렀을 때 승주형의 달력페이지로 가는 기능 구현하기 -->
 		</div>
 		<div id="div_con4" class="vertical-menu">

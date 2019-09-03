@@ -208,6 +208,7 @@
              modal.style.display = "none";
           }
        };
+    
        
    	window.onload = function() {
 		initPage();
