@@ -12,7 +12,7 @@ import kr.co.sist.football.member.model.dto.Member;
 public class LoginController {
 
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String loginForm(Model model) {
 		model.addAttribute("member",new Member());
 		return "member/login";

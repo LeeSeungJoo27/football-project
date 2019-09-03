@@ -30,6 +30,20 @@
 <html lang="ko">
 
 <HEAD>
+<!-- Mobile Metas -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<!-- Theme CSS -->
+<link href="/resources/css/main.css" rel="stylesheet" media="screen" />
+
+<!-- Favicons -->
+<link rel="shortcut icon" href="/resources/img/icons/favicon.ico" />
+<link rel="apple-touch-icon"
+	href="/resources/img/icons/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="72x72"
+	href="/resources/img/icons/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114"
+	href="/resources/img/icons/apple-touch-icon-114x114.png" />
 <link rel="stylesheet" type="text/css"
 	href="/resources/css/gameschedule.css" />
 <link rel="stylesheet" type="text/css" href="/resources/css/default.css" />
@@ -38,7 +52,7 @@
 <BODY>
 	<div class="container_body">
 		<!-- <form name="calendarFrm" id="calendarFrm" action="" method="get"> -->
-		<DIV id="content" style="width: 712px;">
+		<DIV id="content" style="width: 712px; margin-left: 33%">
 			<table width="100%" border="0" cellspacing="1" cellpadding="1">
 				<tr>
 					<td align="right"><input type="button"
@@ -186,6 +200,20 @@
 			</div>
 		</div>
 	</div>
+	<!-- End layout-->
+
+	<!-- ======================= JQuery libs =========================== -->
+	<!-- jQuery local-->
+	<script type="text/javascript" src="/resources/js/jquery.js"></script>
+	<!-- popper.js-->
+	<script type="text/javascript" src="/resources/js/popper.min.js"></script>
+	<!-- bootstrap.min.js-->
+	<script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
+	<!-- required-scripts.js-->
+	<script type="text/javascript" src="/resources/js/theme-scripts.js"></script>
+	<!-- theme-main.js-->
+	<script type="text/javascript" src="/resources/js/theme-main.js"></script>
+	<!-- ======================= End JQuery libs =========================== -->
 </BODY>
 <script src="/resources/js/Templating.js"></script>
 <script type="text/javaScript" language="javascript"> 
