@@ -10,6 +10,14 @@
 	int year = cal.get(Calendar.YEAR);
 	int month = cal.get(Calendar.MONTH);
 	int date = cal.get(Calendar.DATE);
+	String smonth = Integer.toString(cal.get(Calendar.MONTH)+1);
+	String sdate = Integer.toString(cal.get(Calendar.DATE));
+	if(smonth.length() == 1){
+		smonth = "0" + smonth;
+	}
+	if(sdate.length() == 1){
+		sdate = "0" + sdate;
+	}
 	if (strYear != null) {
 		year = Integer.parseInt(strYear);
 		month = Integer.parseInt(strMonth);
@@ -26,7 +34,6 @@
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyMMdd");
 	int intToday = Integer.parseInt(sdf.format(todayCal.getTime()));
 %>
-
 <html lang="ko">
 
 <HEAD>
@@ -163,8 +170,11 @@
 								}
 								out.println("<TD valign='top' align='left' height='92px' bgcolor='" + backColor + "' nowrap>");
 						%>
-						<font color='<%=color%>'> <%=index%><br />
-							<button class="btn-day">${gameInfoByMonth.gameCount }</button>
+						<font color='<%=color%>'><%=index%><br />
+						<form name="searchGameForm" action="">
+						
+							<button name="gamedate" class="btn-day" id="<%=iUseDate%>" onclick="gameList()"></button>
+						</form>
 						</font>
 						<%
 							out.println("<BR>");
@@ -195,7 +205,7 @@
 			<div class="modal-content">
 				<span class="close">&times;</span>
 				<h3>
-					<a href="">${gameInfoByMonth.gameInfo }</a>
+					<a href="/gameschedule">${gameInfoByMonth.gameInfo }</a>
 				</h3>
 			</div>
 		</div>
@@ -241,5 +251,19 @@
    	window.onload = function() {
 		initPage();
 	};
+</script>
+
+<script type="text/javascript">
+	<c:forEach var="list" items="${scheduleMap}">
+		if(document.getElementById('${list.gamedate}')){
+		document.getElementById("${list.gamedate}").innerHTML = ${list.count} + 'G';
+		document.getElementById("${list.gamedate}").value = ${list.gamedate};
+		}
+	</c:forEach>
+</script>
+<script type="text/javascript">
+function gameList(gamedate){
+	searchGameForm.submit();
+}
 </script>
 </HTML>
