@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.mappers.GameMapper">
+
+	<select id="selectGameCount" 
+		resultType="kr.co.sist.football.gameschedule.model.dto.GameCount">
+		select to_char(game_date,'YYYYMMDD') as gamedate, count(*) as count
+		from game_info
+		group by game_date
+		<!-- and date_format(reg_date, '%y-%M-%d') = ? -->
+	</select>
+
+	<select id="selectGamesByDate" parameterType="String"
+		resultType="kr.co.sist.football.common.model.dto.GameInfo">
+		select id, status_code statusCode, max_person_num maxPersonNum,
+		kind, game_date gameDate, duration, description, max_team_num maxnumTeam from game_info where to_char(game_date,'YYYYMMDD') = #{gameDate} 
+	<!-- 	SELECT 
+game_info.name gameName, 
+team_info.name teamName, 
+game_info.status_code statusCode, 
+game_location.location location,
+game_location.name locationName,
+game_info.duration duration,
+game_info.game_date gameDate
+FROM 
+game_info, 
+team_info, 
+game_location,
+team_participate
+WHERE
+game_info.id = team_participate.game_id AND
+team_info.id = team_participate.team_id AND
+game_info.id = game_location.game_id
+		 -->
+	</select>
+</mapper>

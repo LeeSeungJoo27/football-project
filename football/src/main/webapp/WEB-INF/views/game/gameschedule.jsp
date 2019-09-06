@@ -38,6 +38,7 @@
 
 <HEAD>
 <!-- Mobile Metas -->
+   <title>Football matching</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <!-- Theme CSS -->
@@ -54,6 +55,9 @@
 <link rel="stylesheet" type="text/css"
 	href="/resources/css/gameschedule.css" />
 <link rel="stylesheet" type="text/css" href="/resources/css/default.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </HEAD>
 
 <BODY>
@@ -171,10 +175,14 @@
 								out.println("<TD valign='top' align='left' height='92px' bgcolor='" + backColor + "' nowrap>");
 						%>
 						<font color='<%=color%>'><%=index%><br />
-						<form name="searchGameForm" action="">
+					
+						<a class="btn btn-primary" data-toggle="modal" data-target="#myModal" href="/gameschedule/searchgame?gamedate=<%=iUseDate%>">
+<button name="gamedate" class="btn-day" id="<%=iUseDate%>" ></button></a>
 						
-							<button name="gamedate" class="btn-day" id="<%=iUseDate%>" onclick="gameList()"></button>
-						</form>
+						
+						
+						
+				
 						</font>
 						<%
 							out.println("<BR>");
@@ -200,12 +208,14 @@
 		</DIV>
 		<!-- </form> -->
 
-		<div id="myModal" class="modal" style="position: absolute;">
+		<div id="myModal" class="modal" style="position: absolute; size: 100%">
 			<!-- Modal content -->
 			<div class="modal-content">
 				<span class="close">&times;</span>
 				<h3>
-					<a href="/gameschedule">${gameInfoByMonth.gameInfo }</a>
+				<c:forEach var="gamelist" items="${gameMap}">
+					<a href="">${gamelist.id }</a>
+				</c:forEach> 
 				</h3>
 			</div>
 		</div>
@@ -260,10 +270,7 @@
 		document.getElementById("${list.gamedate}").value = ${list.gamedate};
 		}
 	</c:forEach>
+	
 </script>
-<script type="text/javascript">
-function gameList(gamedate){
-	searchGameForm.submit();
-}
-</script>
+
 </HTML>
